@@ -1,24 +1,35 @@
 [build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
 [project]
 name = "dotmod"
-version = "0.1.0"
-description = "Performs immutable modifications on nested data using dot paths."
+version = "0.2.0"
+authors = [
+  { name="Alex Towell", email="lex@metafunctor.com" },
+]
+description = "Immutable modifications for nested data structures."
 readme = "README.md"
 requires-python = ">=3.8"
-license = {text = "MIT"}
-authors = [
-  {name = "A. Coder", email = "acoder@example.com"},
-]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Topic :: Text Processing :: Filters",
 ]
-dependencies = ["dotget", "dotstar", "dotquery"]
+dependencies = [
+    "PyYAML>=5.0"
+] # No external dependencies, as it has its own traversal logic
 
 [project.urls]
-Homepage = "https://github.com/user/dot-ecosystem"
-Issues = "https://github.com/user/dot-ecosystem/issues"
+Homepage = "https://github.com/queelius/dotmod"
+Issues = "https://github.com/queelius/dotmod/issues"
+
+# This section makes the `dotmod` command available in the user's terminal
+# after they install the package. It maps the command to the `main` function
+# in our `cli.py` file.
+[project.scripts]
+dotmod = "dotmod.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dotmod"]
