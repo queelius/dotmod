@@ -1,4 +1,8 @@
-# dotmod
+# `dotmod` - Immutable Modifications for Nested Data Structures
+
+> "To improve is to change; to be perfect is to change often."  
+>
+> — Winston Churchill
 
 **Immutable modifications for nested data structures.**
 
@@ -124,5 +128,3 @@ pip install dotmod
 
 MIT. Use it freely.
 
-> "To improve is to change; to be perfect is to change often."  
-> — Winston Churchill
